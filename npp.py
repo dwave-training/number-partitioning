@@ -27,11 +27,11 @@ numruns = 10
 # Run the QUBO on the solver from your config file
 from dwave.system import DWaveSampler, EmbeddingComposite
 
-sampler = EmbeddingComposite(DWaveSampler())
+sampler = EmbeddingComposite(DWaveSampler(solver={'qpu': True}))
 sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
 
 ## ------- Return results to user -------
 for sample in sample_set:
-    S1 = [S[i] for i in sample if sample[i] > 0]
-    S0 = [S[i] for i in sample if sample[i] < 1]
+    S1 = [S[i] for i in sample if sample[i] == 1]
+    S0 = [S[i] for i in sample if sample[i] == 0]
     print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
