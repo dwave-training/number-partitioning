@@ -12,44 +12,52 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## ------- Set up our list of numbers -------
-S = [25, 7, 13, 31, 42, 17, 21, 10]
-
-# TODO: Enter your token here
-token = 'Your-Token-Here'
-
-## ------- Set up our QUBO dictionary -------
+## ------- import packages -------
+from dwave.system import DWaveSampler, EmbeddingComposite
 
 # TODO:  Add code here to define your QUBO dictionary
 def define_QUBO(S):
+
     Q = {}
+
+    # Add QUBO construction here
     
     return Q
 
-Q = define_QUBO(S)
-
-## ------- Run our QUBO on the QPU -------
-
-# Run the QUBO on the solver from your config file
-from dwave.system import DWaveSampler, EmbeddingComposite
-sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
-
+# TODO:  Choose QPU parameters in the following function
 def run_on_QPU(Q, sampler):
 
-    # TODO:  Choose QPU parameters
-    chainstrength = 1
-    numruns = 1
+    chainstrength = 1 # update
+    numruns = 1 # update
 
     sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
 
     return sample_set
 
-sample_set = run_on_QPU(Q, sampler)
 
-## ------- Return results to user -------
-for sample in sample_set:
-    S1 = [S[i] for i in sample if sample[i] == 1]
-    S0 = [S[i] for i in sample if sample[i] == 0]
+## ------- Main program -------
+if __name__ == "__main__":
 
-    ## Uncomment the line below to check your answers before submitting
-    # print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
+    ## ------- Set up our list of numbers -------
+    S = [25, 7, 13, 31, 42, 17, 21, 10]
+
+    # TODO: Enter your token here
+    token = 'Your-Token-Here'
+
+    ## ------- Set up our QUBO dictionary -------
+
+    Q = define_QUBO(S)
+
+    ## ------- Run our QUBO on the QPU -------
+
+    # Run the QUBO on the solver from your config file
+
+    sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
+
+    sample_set = run_on_QPU(Q, sampler)
+
+    ## ------- Return results to user -------
+    for sample in sample_set:
+        S1 = [S[i] for i in sample if sample[i] == 1]
+        S0 = [S[i] for i in sample if sample[i] == 0]
+        print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
