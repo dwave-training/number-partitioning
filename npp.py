@@ -50,8 +50,6 @@ if __name__ == "__main__":
 
     ## ------- Run our QUBO on the QPU -------
 
-    # Run the QUBO on the solver from your config file
-
     sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
 
     sample_set = run_on_QPU(Q, sampler)
