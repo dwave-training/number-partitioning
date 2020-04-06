@@ -16,7 +16,12 @@
 from dwave.system import DWaveSampler, EmbeddingComposite
 
 # TODO:  Add code here to define your QUBO dictionary
-def define_QUBO(S):
+def get_qubo(S):
+    """Returns a dictionary representing a QUBO.
+
+    Args:
+        S(list of integers): represents the numbers being partitioned
+    """
 
     Q = {}
 
@@ -25,7 +30,13 @@ def define_QUBO(S):
     return Q
 
 # TODO:  Choose QPU parameters in the following function
-def run_on_QPU(Q, sampler):
+def run_on_qpu(Q, sampler):
+    """Runs the QUBO problem Q on the sampler provided.
+
+    Args:
+        Q(dict): a representation of a QUBO
+        sampler(dimod.Sampler): a sampler that uses the QPU
+    """
 
     chainstrength = 1 # update
     numruns = 1 # update
@@ -46,13 +57,13 @@ if __name__ == "__main__":
 
     ## ------- Set up our QUBO dictionary -------
 
-    Q = define_QUBO(S)
+    Q = get_qubo(S)
 
     ## ------- Run our QUBO on the QPU -------
 
     sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
 
-    sample_set = run_on_QPU(Q, sampler)
+    sample_set = run_on_qpu(Q, sampler)
 
     ## ------- Return results to user -------
     for sample in sample_set:
