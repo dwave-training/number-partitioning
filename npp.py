@@ -12,26 +12,61 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-## ------- Set up our list of numbers -------
-S = [25, 7, 13, 31, 42, 17, 21, 10]
-
-## ------- Set up our QUBO dictionary -------
-
-# TODO:  Add code here to define your QUBO dictionary
-
-## ------- Run our QUBO on the QPU -------
-# TODO:  Choose QPU parameters
-chainstrength = 1
-numruns = 10
-
-# Run the QUBO on the solver from your config file
+## ------- import packages -------
 from dwave.system import DWaveSampler, EmbeddingComposite
 
-sampler = EmbeddingComposite(DWaveSampler(solver={'qpu': True}))
-sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+# TODO:  Add code here to define your QUBO dictionary
+def get_qubo(S):
+    """Returns a dictionary representing a QUBO.
 
-## ------- Return results to user -------
-for sample in sample_set:
-    S1 = [S[i] for i in sample if sample[i] == 1]
-    S0 = [S[i] for i in sample if sample[i] == 0]
-    print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
+    Args:
+        S(list of integers): represents the numbers being partitioned
+    """
+
+    Q = {}
+
+    # Add QUBO construction here
+    
+    return Q
+
+# TODO:  Choose QPU parameters in the following function
+def run_on_qpu(Q, sampler):
+    """Runs the QUBO problem Q on the sampler provided.
+
+    Args:
+        Q(dict): a representation of a QUBO
+        sampler(dimod.Sampler): a sampler that uses the QPU
+    """
+
+    chainstrength = 1 # update
+    numruns = 1 # update
+
+    sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+
+    return sample_set
+
+
+## ------- Main program -------
+if __name__ == "__main__":
+
+    ## ------- Set up our list of numbers -------
+    S = [25, 7, 13, 31, 42, 17, 21, 10]
+
+    # TODO: Enter your token here
+    token = 'Your-Token-Here'
+
+    ## ------- Set up our QUBO dictionary -------
+
+    Q = get_qubo(S)
+
+    ## ------- Run our QUBO on the QPU -------
+
+    sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
+
+    sample_set = run_on_qpu(Q, sampler)
+
+    ## ------- Return results to user -------
+    for sample in sample_set:
+        S1 = [S[i] for i in sample if sample[i] == 1]
+        S0 = [S[i] for i in sample if sample[i] == 0]
+        print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
