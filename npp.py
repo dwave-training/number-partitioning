@@ -15,6 +15,12 @@
 ## ------- import packages -------
 from dwave.system import DWaveSampler, EmbeddingComposite
 
+def get_token():
+    '''Return your personal access token'''
+    
+    # TODO: Enter your token here
+    return 'YOUR-TOKEN-HERE'
+
 # TODO:  Add code here to define your QUBO dictionary
 def get_qubo(S):
     """Returns a dictionary representing a QUBO.
@@ -52,8 +58,7 @@ if __name__ == "__main__":
     ## ------- Set up our list of numbers -------
     S = [25, 7, 13, 31, 42, 17, 21, 10]
 
-    # TODO: Enter your token here
-    token = 'Your-Token-Here'
+    token = get_token()
 
     ## ------- Set up our QUBO dictionary -------
 
