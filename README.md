@@ -12,3 +12,9 @@ values for `chainstrength` and `numruns`.
 To run your program type `python npp.py`.  You have successfully completed the 
 exercise when you are able to see output showing S0 sum and S1 sum are both equal 
 to 83.
+
+To complete the program, please complete the following:
+
+ - Add your token to the `get_token` function
+ - Fill in the entries in your QUBO dictionary in the `get_qubo` function
+ - Find good values for `chainstrength` and `numruns` in the `run_on_qpu` function
