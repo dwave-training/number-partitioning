@@ -17,4 +17,4 @@ To complete the program, please complete the following:
  - Add your token to the `get_token` function
  - Fill in the entries in your QUBO dictionary in the `get_qubo` function
  - Find good values for `chainstrength` and `numruns` in the `run_on_qpu` function
->>>>>>> master
+
