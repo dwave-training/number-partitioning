@@ -1,4 +1,4 @@
-# number-partitioning
+# The Number Partitioning Problem
 
 The number partitioning problem begins with a set of numbers, S.  We must split
 the set of numbers into two sets with equal sum.  In our training course, we
