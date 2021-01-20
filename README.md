@@ -14,10 +14,10 @@ equal to 83.
 
 To complete the program, please complete the following:
 
-- Add your token to the `get_token` function
-- Fill in the entries in your QUBO dictionary in the `get_qubo` function
+- Add your token to the `get_token` function.
+- Fill in the entries in your QUBO dictionary in the `get_qubo` function. In your QUBO dictionary use 0-7 for the variables.
 - Find good values for `chainstrength` and `numruns` in the `run_on_qpu`
-   function
+   function.
 
 If you get stuck, you can first check that your QUBO is correct by setting
 `chainstrength = None` on line 47 in `npp.py`.  This will use the Ocean chain
