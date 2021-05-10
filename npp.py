@@ -58,15 +58,13 @@ if __name__ == "__main__":
     ## ------- Set up our list of numbers -------
     S = [25, 7, 13, 31, 42, 17, 21, 10]
 
-    token = get_token()
-
     ## ------- Set up our QUBO dictionary -------
 
     Q = get_qubo(S)
 
     ## ------- Run our QUBO on the QPU -------
 
-    sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
+    sampler = EmbeddingComposite(DWaveSampler())
 
     sample_set = run_on_qpu(Q, sampler)
 
