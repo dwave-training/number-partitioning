@@ -47,7 +47,7 @@ def run_on_qpu(Q, sampler):
     chainstrength = 1 # update
     numruns = 1 # update
 
-    sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+    sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns, label='Training - Number Partitioning')
 
     return sample_set
 
