@@ -22,3 +22,7 @@ To complete the program, please complete the following:
 If you get stuck, you can first check that your QUBO is correct by setting
 `chainstrength = None` on line 47 in `npp.py`.  This will use the Ocean chain
 strength tuning tool, and set the chain strength for you.
+
+## License
+
+Released under the Apache License 2.0. See [LICENSE](LICENSE) file.
