@@ -15,12 +15,6 @@
 ## ------- import packages -------
 from dwave.system import DWaveSampler, EmbeddingComposite
 
-def get_token():
-    '''Returns personal access token. Only required if submitting to autograder.'''
-    
-    # TODO: Enter your token here
-    return 'YOUR-TOKEN-HERE'
-
 # TODO:  Add code here to define your QUBO dictionary
 def get_qubo(S):
     """Returns a dictionary representing a QUBO.
