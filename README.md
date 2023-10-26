@@ -12,7 +12,7 @@ appropriate values for `chainstrength` and `numruns`.
 You have successfully completed the exercise when you are able to see an output showing S0 sum and S1 sum are both
 equal to 83.
 
-To complete the program, please complete the following:
+To complete the program, please do the following:
 
 - Fill in the entries in your QUBO dictionary in the `get_qubo` function. In your QUBO dictionary use 0-7 for the variable names.
 - Find good values for `chainstrength` and `numruns` in the `run_on_qpu`
