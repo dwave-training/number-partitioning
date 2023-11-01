@@ -1,4 +1,7 @@
-
+[![Open in GitHub Codespaces](
+  https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-333?logo=github)](
+  https://codespaces.new/dwave-training/number-partitioning?quickstart=1)
+  
 # The Number Partitioning Problem
 
 The number partitioning problem begins with a set of numbers, S.  We must split
