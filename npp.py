@@ -64,6 +64,6 @@ if __name__ == "__main__":
 
     ## ------- Return results to user -------
     for sample in sample_set:
-        S1 = [S[i] for i in sample if sample[i] == 1]
-        S0 = [S[i] for i in sample if sample[i] == 0]
+        S1 = [S[i] for i in range(1,8) if sample[i] == 1]
+        S0 = [S[i] for i in range(1,8) if sample[i] == 0]
         print("S0 Sum: ", sum(S0), "\tS1 Sum: ", sum(S1), "\t", S0)
